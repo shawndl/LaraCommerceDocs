@@ -1,0 +1,28 @@
+<nav class="navbar" (window:resize)="onResize()">
+  <div class="navbar-brand">
+    <div class="navbar-item">
+      Lara Commerce
+    </div>
+    <div [ngClass]="{'navbar-burger' : true, 'is-active' : !showMobileMenu}" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div><!-- /.navbar-brand -->
+  <div [ngClass]="{'navbar-menu' : true, 'is-active' : !showMobileMenu}" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item">
+        <a routerLink="/">Home</a>
+      </div>
+      <div class="navbar-item">
+        <a href="#">Installation</a>
+      </div>
+      <div class="navbar-item">
+        <a href="#">Features</a>
+      </div>
+      <div class="navbar-item">
+        <a routerLink="documentation">Documentation</a>
+      </div>
+    </div><!-- /.navbar-start -->
+  </div><!-- /.navbar-menu -->
+</nav>
