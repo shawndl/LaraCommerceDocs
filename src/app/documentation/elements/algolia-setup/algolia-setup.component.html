@@ -1,0 +1,94 @@
+<h1 class="title">Live Search Set Up</h1>
+<div>
+  <p>
+    Lara-Commerce has two options for performing searches a <span class="has-text-info">Basic</span>
+    approach or using <span class="has-text-info">Algolia</span>.  The basic approach uses a mysql query to
+    on the products table to return search results. The algolia approach is a bit more complex and some of
+    the advantages of using algolia are listed below.  For more information please visit <a href="https://www.algolia.com/">
+    the algolia website</a>
+  </p>
+  <div class="box">
+    <div class="columns">
+      <div class="column">
+        <h3 class="subtitle">Advantages</h3>
+        <ul class="">
+          <li><i class="fa fa-check has-text-success" aria-hidden="true"></i>Customise Search Results</li>
+          <li><i class="fa fa-check has-text-success" aria-hidden="true"></i>Spell Checking</li>
+          <li><i class="fa fa-check has-text-success" aria-hidden="true"></i>Faster Searches</li>
+        </ul>
+      </div><!-- /.column -->
+      <div class="column">
+        <h3 class="subtitle">Disadvantage</h3>
+        <ul class="">
+          <li><i class="fa fa-times has-text-danger" aria-hidden="true"></i>Cost Money</li>
+        </ul>
+      </div><!-- /.column -->
+    </div><!-- /.columns -->
+  </div><!-- /.box -->
+  <p>
+    The basic approach is set up by default, so no action is needed to set it up.  In order to
+    set up the algolia approach please follow the guide below
+  </p>
+  <hr>
+  <h2 class="subtitle">
+    Step 1: Set Up an Algolia account
+  </h2>
+  <p>
+    In order to set up an algolia account go to there <a href="https://www.algolia.com">website</a> and click create
+    an account.  Following the instructions and sign in to your new account.
+  </p>
+  <hr>
+  <h2 class="subtitle">
+    Step 2: Set Up API Keys
+  </h2>
+  <p>
+    Once you have created an account visit your algolia dashboard and on your side bar click the
+    <span class="has-text-info">API Key</span> link.  The API Key page will contain information about
+    your <span class="has-text-info">Application ID</span> and your <span class="has-text-info">Admin
+    API Key</span>.  You will need to include these in your <span class="has-text-info">.env</span> file.
+  </p>
+  <div class="box">
+    ALGOLIA_APP_ID= //your Application ID
+    <br />
+    ALGOLIA_SECRET= //you AdminAPI Key
+  </div>
+  <hr>
+  <h2 class="subtitle">
+    Step 3: Set Up Search Products
+  </h2>
+  <p>
+    In the Lara-Commerce <span class="has-text-primary">app/Product.php</span> file look for the search method
+    and comment it out.
+  </p>
+  <pre class="code-block">
+    <code>
+      /**
+       * performs a search if algolia is not used
+       * comment out if algolia is used
+       *
+       * @param $query
+       * @return mixed
+       */
+      //public function search($query)
+      //&#123;
+      //    return $this->where('title', 'like', "%$query%");
+      //&#125;
+    </code>
+  </pre>
+  <p>
+    Next at the top of the <span class="has-text-primary">app/Product.php</span> look for the trait <span class="has-text-primary">
+    Searchable</span> and uncomment it.  Algolia is now your primary search engine.
+  </p>
+  <pre class="code-block">
+    <code>
+      class Product extends Model
+      &#123;
+          use Searchable;
+    </code>
+  </pre>
+  <p>
+    For more information about using Algolia with Laravel please visit <a href="https://laravel.com/docs/5.4/scout">Laravel Scout</a>
+    or for information about customising your searches please visit <a href="https://www.algolia.com/doc/">Algolia's Documentation</a>
+  </p>
+</div><!-- /.root -->
+

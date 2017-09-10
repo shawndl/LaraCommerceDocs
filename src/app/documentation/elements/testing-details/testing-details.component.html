@@ -1,0 +1,128 @@
+<h1 class="title">
+  Testing Details
+</h1>
+<div class="menu">
+  <p class="menu-label"><a href="/documentation/testing-details#phpunit">PHPUnit</a></p>
+  <ul class="menu-list">
+    <li><a href="/documentation/testing-details#unit-tests">Unit Tests</a></li>
+    <li><a href="/documentation/testing-details#integration-tests">Integrated Tests</a></li>
+    <li><a href="/documentation/testing-details#acceptance-tests">Acceptance Tests</a></li>
+  </ul>
+  <p class="menu-label"><a href="documentation/testing-details#dusk">Laravel's Dusk</a></p>
+  <ul class="menu-list">
+    <li>Authorisation Tests</li>
+    <li>Includes</li>
+    <li>Order</li>
+    <li>User Account</li>
+  </ul>
+</div>
+<hr>
+<div>
+  <p>
+    Lara-Commerce uses two separate testing frameworks: <span class="has-text-info">
+  PHPUnit</span> and <span class="has-text-info">Laravel Dusk</span>.  PHPUnit tests
+    the server end of Lara-Commerce while Laravel Dusk tests the browser.
+  </p>
+  <hr>
+  <h2 class="title is-4">
+    <a id="phpunit">PHPUnit</a>
+  </h2>
+  <p>
+    PHPUnit will test the php code and the http requests to the server.  To run PHPUnit
+    tests simple open your terminal and go to the Lara-Commerce folder.  Then run
+    <span class="has-text-info">phpunit</span>.  This will begin your test code.
+  </p>
+  <pre class="code-block">
+  phpunit
+</pre>
+  <p>
+    A common error is if you have not created an alias for PHPUnit.  If you run PHPUnit and
+    receive the following error <span class="has-text-danger">bash: phpunit: command not
+  found</span> then simply run <span class="has-text-info">vendor/bin/phpunit</span>.
+  </p>
+  <p>
+    There are a lot of tests in PHPUnit, which take a long time to run.  It may not be possible
+    to run every test on your system at once so you may want to break up running your tests into
+    smaller units.
+  </p>
+  <hr>
+  <h2 class="subtitle">
+    <a id="unit-tests">Unit Tests</a>
+  </h2>
+  <p>
+    Unit tests test the following values.
+  </p>
+  <div class="box">
+    <ul>
+      <li>Error Tracking</li>
+      <li>Date Formatting</li>
+      <li>Shipping Date Estimator</li>
+    </ul>
+  </div>
+  <p>
+    To run PHPUnit unit test in your terminal run <span class="has-text-info">phpunit --group unit</span>
+  </p>
+  <pre class="code-block">
+  PHPUnit --group unit
+</pre>
+  <hr>
+  <h2 class="subtitle">
+    <a id="integration-tests">Integration Tests</a>
+  </h2>
+  <p>
+    Integrated tests the following items
+  </p>
+  <div class="box">
+    <ul>
+      <li>Laravel Models: <span class="has-text-info">phpunit --group models </span></li>
+      <li>Database Classes: <span class="has-text-info">phpunit --group database </span></li>
+      <li>Laravel Transformers: <span class="has-text-info">phpunit --group transformers </span></li>
+    </ul>
+  </div>
+  <p>
+    To run PHPUnit integration tests in your terminal run <span class="has-text-info">phpunit --group unit</span>
+  </p>
+  <pre class="code-block">
+  phpunit --group integration
+</pre>
+  <hr>
+  <h2 class="subtitle">
+    <a id="acceptance-tests">Acceptance Tests</a>
+  </h2>
+  <p>
+    Acceptance tests the following items
+  </p>
+  <div class="box">
+    <ul>
+      <li>http requests related to addresses: <span class="has-text-info">phpunit --group addresses </span></li>
+      <li>http requests related to the HomeController: <span class="has-text-info">phpunit --group home</span></li>
+      <li>http requests for login requests<span class="has-text-info">phpunit --group login </span></li>
+      <li>http requests for registration requests<span class="has-text-info">phpunit --group register </span></li>
+      <li>http requests for order requests<span class="has-text-info">phpunit --group order </span></li>
+      <li>http requests for order stripe payments<span class="has-text-info">phpunit --group live_payment </span></li>
+      <li>http requests to view products<span class="has-text-info">phpunit --group products </span></li>
+      <li>http requests for searching products<span class="has-text-info">phpunit --group search</span></li>
+      <li>http requests for shopping cart<span class="has-text-info">phpunit --group shopping_cart</span></li>
+      <li>http requests for user accounts<span class="has-text-info">phpunit --group user_account</span></li>
+    </ul>
+  </div>
+  <p>
+    To run PHPUnit acceptance tests in your terminal run <span class="has-text-info">phpunit --group acceptance</span>
+  </p>
+  <pre class="code-block">
+    phpunit --group integration
+  </pre>
+  <hr>
+</div>
+<div>
+  <h2 class="title is-4">
+    <a id="dusk"></a>Laravel Dusk
+  </h2>
+  <p>
+    Laravel Dusk provides browser automation to test Lara-Commerce in google chrome.  For a full guide
+    of how Laravel Dusk operates please visit the <a href="https://laravel.com/docs/5.4/dusk">Laravel's
+    Documentation</a>.  To run Laravel's Dusk tests simple open your terminal and go to the
+    Lara-Commerce folder.  Then run <span class="has-text-info">php artisan dusk</span>.  This will
+    begin your test code.
+  </p>
+</div>

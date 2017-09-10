@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,YAAa;EACX,gBAAgB,EAAE,QAAQ;EAC1B,OAAO,EAAE,IAAI",
+"sources": ["side-menu.component.scss"],
 "names": [],
 "file": "side-menu.component.css"
 }

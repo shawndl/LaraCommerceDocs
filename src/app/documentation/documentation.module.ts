@@ -17,7 +17,7 @@ import {SideMenuComponent} from './side-menu/side-menu.component';
   declarations: [
     DocumentationComponent,
     DocumentationHomeComponent,
-    SideMenuComponent
+    SideMenuComponent,
   ],
   exports: [
     DocumentationComponent

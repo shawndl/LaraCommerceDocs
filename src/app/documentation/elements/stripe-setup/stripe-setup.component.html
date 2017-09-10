@@ -1,0 +1,64 @@
+<h1 class="title">Set Up Payments</h1>
+<p>
+  All payments for Lara-Commerce are set up through <strong>Stripe</strong> which is
+  a third party <strong>payment gateway</strong>. A payment gateway is a merchant service that authorizes
+  credit card or direct payments processing for an e-commerce site.  One key advantage
+  to using a payment gateway is that your customer's credit card information never touches
+  your servers.  Another important advantage is that stripe is PCI compliant.
+</p>
+<hr>
+<h2 class="subtitle">
+  Step 1: Create a Stripe Account
+</h2>
+<p>
+  Visit <a href="https://stripe.com" class="is-link">Stripe</a> and click <span class="has-text-info">
+  Create an Account</span>.
+</p>
+<hr>
+<h2 class="subtitle">
+  Step 2: Integrate Stripe with your System
+</h2>
+<p>
+  In order to integrate <strong>Stripe</strong> with Lara-Commerce you need your <span class="has-text-info">
+  Publishable Key</span> and your <span class="has-text-info">Secret Key</span>.  To get both
+  of your keys you need to be registered with stripe.  Once you are registered visit the
+  you <span class="has-text-info">Stripe Dashboard</span> and on the side bar you should
+  see a link called <span class="has-text-info">API</span>.  On this page you will see your
+  <span class="has-text-info">Publishable Key</span> and your <span class="has-text-info">
+  Secret Key</span>.
+</p>
+<p>
+  Now open your Lara-Commerce <span class="has-text-info">.env</span> file that you created when you
+  installed Lara-Commerce.  In the <span class="has-text-info">.env</span> add your <span class="has-text-info">
+  Publishable Key</span> and your <span class="has-text-info">Secret Key</span>.
+</p>
+<div class="box">
+  <ul>
+    <li>
+      STRIPE_KEY=<span class="has-text-info">Publishable Key</span>
+    </li>
+    <li>
+      STRIPE_SECRET=<span class="has-text-info">Secret Key</span>
+    </li>
+  </ul>
+</div><!-- /.box -->
+<hr>
+<h2 class="subtitle">
+  Step 3: Test that Lara-Commerce and Stripe was integrated
+</h2>
+<p>
+  In order to confirm that stripe has been integrated into Lara-Commerce correctly just run the
+  group test <span class="has-text-info">live_payment</span>. <span class="has-text-info">Phpunit</span>
+  needs to be set up before the tests can be run.  For a guide on that please visit
+  <a class="is-link" routerLink="/documentation/setup-phpunit">set up Phpunit</a>.  To run tests in your
+  terminal <span class="has-text-info">cd into your Lara-Commerce folder</span> and run the
+  <span class="has-text-info">phpunit --group live_payment</span> command.  This may take several minutes
+  because each test connects to your <span class="has-text-info">stripe account</span>.
+</p>
+<pre class="code-block">
+  phpunit --group live_payment
+</pre>
+<p>
+  If Lara-Commerce was successfully integrated with stripe then phpunit should return green. For more information about
+  stripe please visit the <a class="is-link" href="https://stripe.com/docs">Stripe Documentation</a>.
+</p>

@@ -1,0 +1,77 @@
+<h1 class="title">Set Up Phpunit</h1>
+<p>
+  Lara-Commerce has an been tested using <span class="has-text-info">phpunit</span>.
+  However, to run the phpunit test successfully you must first create a test database.
+  All testing is done using <span class="has-text-info">SQLite</span> in order to
+  speed up the tests.
+</p>
+<hr>
+<h2 class="subtitle">
+  Step 1: Create a Test Database
+</h2>
+<p>
+  In your terminal, go to the root directory of Lara-Commerce and type <span class="has-text-info">
+  touch database/testing.sqlite</span>.  This will create your test database.
+</p>
+<pre class="code-block">
+  touch database/testing.sqlite
+</pre>
+<hr>
+<h2 class="subtitle">
+  Step 2: Configure a Testing Database
+</h2>
+<p>
+  Open your database configuration file at <span class="has-text-info">config/database.php</span>.  Scroll
+  down to the Order Connections section and look for an array called <span class="has-text-info">"connection"
+  </span>.  In the connections array add the following block of code.
+</p>
+<pre class="code-block">
+     'connections' => [
+        'sqlite_testing' => [
+              'driver' => 'sqlite',
+              'database' => database_path('testing.sqlite'),
+              'prefix' => '',
+          ],
+  </pre>
+<hr>
+<h2 class="subtitle">
+  Step 2: Migrate the Test Database
+</h2>
+<p>
+  You have now created a test database but it doesn't have any tables or columns.  Laravel will
+  add these tables and columns for you by using the command <span class="has-text-info">php artisan
+  migrate --database=sqlite_testing</span>
+</p>
+<pre class="code-block">
+  php artisan migrate --database=sqlite_testing
+</pre>
+<hr>
+<h2 class="subtitle">
+  Step 3: Point PHPUnit to the Test Database
+</h2>
+<p>
+  Your testing database is ready to perform tests but PHPUnit does not know about the
+  test database.  In order to point PHPUnit to the new test database open the the
+  <span class="has-text-info">phpunit.xml</span> file in the root directory of Lara-Commerce
+  and in the <span class="has-text-info">php attribute</span> add the following line of code.
+</p>
+<div class="box">
+  &#60;php&#62;
+    <br />
+    &#60;env name="APP_ENV" value="testing"&#47;&#62;
+    <br />
+    &#60;env name="CACHE_DRIVER" value="array"&#47;&#62;
+    <br />
+    &#60;env name="SESSION_DRIVER" value="array"&#47;&#62;
+    <br />
+    &#60;env name="QUEUE_DRIVER" value="sync"&#47;&#62;
+    <br />
+    <span class="has-text-success">&#60;env name="DB_CONNECTION" value="sqlite_testing"&#47;&#62;</span>
+  <br />
+  &#60;&#47;php&#62;
+</div>
+
+<p>
+  You are now ready to begin testing Lara-Commerce.  To learn more about testing details please
+  go to the <a class="is-link" routerLink="/documentation/testing-details">Running Tests</a> section
+</p>

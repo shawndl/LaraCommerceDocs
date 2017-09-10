@@ -1,0 +1,40 @@
+<h1 class="title">Set Up Laravel's Dusk</h1>
+<p>
+  Lara-Commerce has an been tested using <a href="https://laravel.com/docs/5.4/dusk">Laravel's Dusk</a>.
+  However, to run the Laravel's Dusk test successfully you must first create a test database.
+  If you have not created testing database, then please following the instructions at
+  <a routerLink="/documentation/setup-phpunit">Setting up PHPUnit</a>
+</p>
+<hr>
+<h2 class="subtitle">
+  Step 1: Point Laravel's Dusk to the Test Database
+</h2>
+<p>
+  In order to point Laravel's Dusk to the testing database simple generate a new <span class="has-text-info">
+  .env.example</span> file using the <span class="has-text-info">php artisan publish:env</span> command.
+</p>
+<pre class="code-block">
+  php artisan publish:env
+</pre>
+<p>
+  After the .env.example file has been generated, it must be renamed <span class="has-text-info">.env.dusk.local
+  </span>.  The .env.dusk.local file will provide all the settings that will be used for testing
+  the browser, including the test database.  Open the .env.dusk.local file and delete everything but the
+  following settings.  Make sure that the DB_CONNECTION and DB_DATABASE reflect your testing database.
+</p>
+<div class="box">
+  APP_ENV=local <br />
+  APP_KEY= //app key from your original .env file <br />
+  APP_DEBUG=true <br />
+  APP_LOG_LEVEL=debug <br />
+  APP_URL= //host name from homestead <br />
+  <br />
+  <span class="has-text-success">DB_CONNECTION=sqlite_testing</span> <br />
+</div>
+<p>
+  You are now ready to begin testing the browser.  To run browser tests simply enter <span class="has-text-info">
+  php artisan dusk</span> in your terminal.
+</p>
+<pre class="code-block">
+  php artisan dusk
+</pre>

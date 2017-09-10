@@ -10,17 +10,19 @@
     </div><!-- /.container -->
   </div><!-- /.hero-body -->
 </section>
-<div class="container is-fluid">
-  <div class="notification">
-    <div class="columns">
-      <div class="column is-one-quarter">
-        <app-side-menu></app-side-menu>
-      </div><!-- /.column -->
-      <div class="column">
-        <router-outlet></router-outlet>
-      </div><!-- /.column -->
-    </div><!-- /.columns -->
-  </div><!-- /.notification -->
+<div class="container">
+  <div class="columns">
+    <div class="column is-one-quarter">
+      <app-side-menu></app-side-menu>
+    </div><!-- /.column -->
+    <div class="column">
+      <section class="section">
+        <div class="container is-fluid">
+          <router-outlet></router-outlet>
+        </div><!-- /.container -->
+      </section>
+    </div><!-- /.column -->
+  </div><!-- /.columns -->
 </div><!-- /.container -->
 
 

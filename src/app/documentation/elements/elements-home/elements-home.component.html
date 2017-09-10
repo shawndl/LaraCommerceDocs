@@ -1,16 +1,126 @@
-<div class="columns">
-  <div class="column">
-    <article class="message">
-      <div class="message-header">
-        Installation
-        <button class="delete" aria-label="delete"></button>
-      </div><!-- /.message-header -->
-      <div>
-        For information about
-      </div><!-- /.message-body -->
-    </article>
-  </div>
-  <div class="column">
-    Second column
-  </div>
+<h1 class="title">Installing Lara-Commerce</h1>
+<h2 class="subtitle">
+  Step 1: Download the Application
+</h2>
+<p>
+  Clone the git repository:
+</p>
+<pre class="code-block">
+      git clone https://github.com/shawndl/LaraCommerce.git
+    </pre>
+<p>Enter the LaraCommerce director</p>
+<pre>
+
+      cd LaraCommerce
+    </pre>
+<hr>
+<h2 class="subtitle">
+  Step 2: Install all the Dependencies
+</h2>
+<p>
+  Install all the composer requirements
+</p>
+<pre class="code-block">
+  composer install
+</pre>
+<p>Install all the npm requirements </p>
+<pre class="code-block">
+  npm install
+</pre>
+<hr>
+<h2 class="subtitle">
+  Step 3: Set Up your local env file
+</h2>
+<p>
+  In order for your project to work you need to create an <strong>.env</strong> file.
+  The command <span class="has-text-primary">php artisan publish:env</span>
+  will create an  <strong>.env.example</strong>  file for your project.
+  Change the name of that file to <strong>.env </strong> before you can
+  complete the next step.
+</p>
+<pre class="code-block">
+  php artisan publish:env
+</pre>
+<h2 class="subtitle">
+  Step 4: Generate a application key
+</h2>
+<p>
+  Next generate your app key with the following command
+</p>
+<pre class="code-block">
+  php artisan key:generate
+</pre>
+<hr>
+<h2 class="subtitle">
+  Step 5: Migrate your database
+</h2>
+<p>
+  For your next step to work you need to set up your local environment.  If you need any
+  help with that you can check out any of the following links.  Of course, this will work
+  with either MAMP, WAMP, or XAMPP.
+</p>
+<div class="box">
+  <ul class="list">
+    <li>
+      <a href="https://laravel.com/docs/5.4/homestead" class="has-text-primary">Homestead:</a>
+      Laravel Homestead is an official, pre-packaged Vagrant box that provides you a wonderful
+      development environment without requiring you to install PHP, a web server, and any other
+      server software on your local machine.
+    </li>
+    <li>
+      <a href="https://laracasts.com/lessons/say-hello-to-laravel-homestead-two" class="has-text-primary">Say Hello to Laravel Homestead 2.0:</a>
+      If you have any trouble setting up your environment.  Please check out this video on setting
+      up homestead from laracast.
+    </li>
+  </ul>
 </div>
+
+<p>
+  In order to migrate your database you need to set in up first.  To do that in homestead simple
+  ssh into you server with the following command.
+</p>
+<pre>
+
+        homestead ssh
+      </pre>
+<p>
+  Next enter your database by enter the following commands.
+</p>
+<pre class="code-block">
+  mysql -uhomestead -p
+</pre>
+<p>
+  Then it will prompt you to enter your password.  Once you are in <strong>mysql</strong> then
+  create a database with the following command.
+</p>
+<pre>
+    CREATE DATABASE LaraCommerce;
+</pre>
+<p>
+  Before you can use your database with your project you need to register it in the .env file
+  you created earlier.  Open it up in the text editor of your choice and make sure the following
+  values are set
+</p>
+<div class="box">
+  <p>
+    DB_CONNECTION=mysql <br />
+    DB_HOST=127.0.0.1 <br />
+    DB_PORT=3306 <br />
+    DB_DATABASE=LaraCommerce <br />
+    DB_USERNAME=homestead <br />
+    DB_PASSWORD=secret <br />
+  </p>
+</div><!-- /.box -->
+<p>
+  Now you can add all the tables to your database by entering <span class="has-text-primary">php artisan migrate</span>.
+</p>
+<pre class="code-block">
+  php artisan migrate
+</pre>
+
+Your project is now ready to be viewed in a website.  If you want to enter some test data then
+enter <span class="has-text-primary">php artisan db:seed</span>
+<pre>
+
+      php artisan db:seed
+    </pre>
