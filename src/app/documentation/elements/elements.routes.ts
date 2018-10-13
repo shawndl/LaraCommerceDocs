@@ -6,6 +6,9 @@ import { PhpunitSetupComponent } from './phpunit-setup/phpunit-setup.component';
 import { TestingDetailsComponent } from './testing-details/testing-details.component';
 import { DuskSetupComponent } from './dusk-setup/dusk-setup.component';
 import { AlgoliaSetupComponent } from './algolia-setup/algolia-setup.component';
+import { AdminSetupComponent } from './admin-setup/admin-setup.component';
+
+
 
 export const  ElementsPageRoutes: Route[] = [
   {
@@ -27,6 +30,10 @@ export const  ElementsPageRoutes: Route[] = [
   {
     path: 'setup-algolia',
     component: AlgoliaSetupComponent,
+  },
+  {
+    path: 'setup-admin',
+    component: AdminSetupComponent,
   },
   {
     path: 'testing-details',

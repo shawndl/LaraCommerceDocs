@@ -9,6 +9,7 @@ import { PhpunitSetupComponent } from './phpunit-setup/phpunit-setup.component';
 import { TestingDetailsComponent } from './testing-details/testing-details.component';
 import { DuskSetupComponent } from './dusk-setup/dusk-setup.component';
 import { AlgoliaSetupComponent } from './algolia-setup/algolia-setup.component';
+import { AdminSetupComponent } from './admin-setup/admin-setup.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AlgoliaSetupComponent } from './algolia-setup/algolia-setup.component';
     PhpunitSetupComponent,
     TestingDetailsComponent,
     DuskSetupComponent,
-    AlgoliaSetupComponent
+    AlgoliaSetupComponent,
+    AdminSetupComponent
   ],
   exports: [
     ElementsHomeComponent,
